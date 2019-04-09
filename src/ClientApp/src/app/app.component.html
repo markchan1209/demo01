@@ -1,0 +1,157 @@
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container d-flex flex-column flex-md-row">
+
+      <div class="container-md-left">
+          <a class="navbar-brand ml-md-5" href="index.html">HaveFun</a>
+      </div>
+      <div class="pl-md-5 flex-1">
+          <form style="max-width:400px">
+              <div style="position:relative">
+                  <i class="fas fa-search" style="color:#fff; position:absolute; top:10px "></i>
+                  <input name="keyword" [(ngModel)]="keyword" #tKeyword="ngModel" class="form-control mr-sm-2 pl-4 bg-primary search-1" type="search" placeholder="Search" aria-label="Search">
+              </div>
+          </form>
+      </div>
+
+  </div>
+</nav>
+<div class="container d-flex flex-column flex-md-row">
+  <div class="container-md-left ">
+      <div class="h4 d-flex d-md-none justify-content-center mt-2">
+          <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="text-decoration:none;">
+              <span class="mr-2">Add filter</span>
+              <i class="fas fa-plus"></i>
+          </a>
+      </div>
+
+      <div class="collapse d-md-block" id="collapseExample">
+          <div class="px-5 py-4 border-bottom filter">
+
+              <div class="h5">
+                  Location
+              </div>
+
+              <div>
+                  <select class="form-control">
+                      <option>Taiwan</option>
+                      <option>Kaohsiung</option>
+                  </select>
+              </div>
+
+
+          </div>
+
+          <div class="px-5 py-4 border-bottom filter">
+              <div class="h5">Price</div>
+              <select class="form-control">
+                  <option>Free</option>
+                  <option>Paid</option>
+              </select>
+          </div>
+          <div class="px-5 py-4 filter">
+              <p class="h5">Open Time</p>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Categories1">
+                  <label class="form-check-label" for="Categories1">Everyday</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Categories2">
+                  <label class="form-check-label" for="Categories2">Monday</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Categories3">
+                  <label class="form-check-label" for="Categories3">Tuesday</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Categories4">
+                  <label class="form-check-label" for="Categories4">Wednesday</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Categories5">
+                  <label class="form-check-label" for="Categories5">Thursday</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Categories6">
+                  <label class="form-check-label" for="Categories6">Friday</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Categories7">
+                  <label class="form-check-label" for="Categories7">Saturday</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Categories8">
+                  <label class="form-check-label" for="Categories8">Sunday</label>
+              </div>
+
+          </div>
+      </div>
+
+  </div>
+
+  <div class="container-fluid pl-md-5 py-md-4 flex-1 px-0">
+      <div class="d-none d-md-block">
+          <p class="h4">Showing
+              <span class="text-primary">15</span> results by...</p>
+
+          <button type="button" class="btn btn-outline-primary btn-rounded">
+              Taiwan
+              <i class="far fa-times-circle"></i>
+          </button>
+          <button type="button" class="btn btn-outline-primary btn-rounded">
+              Free
+              <i class="far fa-times-circle"></i>
+          </button>
+          <button type="button" class="btn btn-outline-primary btn-rounded">
+              Everyday
+              <i class="far fa-times-circle"></i>
+          </button>
+      </div>
+
+      <a *ngFor="let item of data" class="card flex-xl-row my-4" id="card-link" href="page.html" style="text-decoration:none; color:#000">
+          <div class="bg-cover bg-xl-cover bg-md-cover rounded-xl-left rounded-top" [style.background-image]="'url('+item.Picture1+')'"></div>
+          <div class="card-body flex-1">
+              <h4 class="text-primary">
+                  {{item.Name}}
+              </h4>
+              <p>{{item.Description}}</p>
+              <p class="font-weight-bold">{{item.Add}}</p>
+              <span class="card-xl-icon card-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span class="text-black-50">{{item.Zone}}</span>
+              </span>
+              <span class="card-xl-icon card-icon">
+                  <i class="fas fa-dollar-sign"></i>
+                  <span class="text-black-50">{{item.Ticketinfo}}</span>
+              </span>
+              <span class="card-xl-icon card-icon">
+                  <i class="far fa-calendar-alt"></i>
+                  <span class="text-black-50">{{item.Opentime}}</span>
+              </span>
+
+          </div>
+      </a>
+
+
+
+      <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center justify-content-md-end">
+              <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                  <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                  <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+              </li>
+          </ul>
+      </nav>
+
+  </div>
+</div>
